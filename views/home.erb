@@ -1,0 +1,98 @@
+<head>
+<link href="//cdn-images.mailchimp.com/embedcode/slim-081711.css" rel="stylesheet" type="text/css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<style type="text/css">
+  #mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; }
+</style>
+<style type="text/css">
+body {
+  margin: 50px;
+  font-family: "Lato",sans-serif;
+  font-weight: 700;
+}
+
+#mc_embed_signup {
+  width: 50%;
+  padding: 0% 20%;
+}
+
+input.button#mc-embedded-subscribe {
+  width: 58%;
+}
+
+.content {
+  font-size: 22px;
+  line-height: 1.5;
+  letter-spacing: .01rem;
+  font-weight: 400;
+  font-style: normal;
+  padding: 0% 20%;
+}
+
+h2 {
+  text-align: center;
+}
+</style>
+<script type="text/javascript">
+$(document).ready( function () {
+    // I only have one form on the page but you can be more specific if need be.
+    var $form = $('form');
+
+    if ( $form.length > 0 ) {
+        $('form input[type="submit"]').bind('click', function ( event ) {
+            if ( event ) event.preventDefault();
+            // validate_input() is a validation function I wrote, you'll have to substitute this with your own.
+            register($form);
+        });
+    }
+});
+
+function register($form) {
+    $.ajax({
+        type: $form.attr('method'),
+        url: $form.attr('action'),
+        data: $form.serialize(),
+        cache       : false,
+        dataType    : 'json',
+        contentType: "application/json; charset=utf-8",
+        error       : function(err) { alert("Could not connect to the registration server. Please try again later."); },
+        success     : function(data) {
+            if (data.result != "success") {
+              alert(data.msg);
+            } else {
+              $('input[type="email"]').val('');
+              alert("Thank you for signing up! We sent you a link to confirm your address.")
+            }
+        }
+    });
+}
+</script>
+</head>
+<body>
+<h2>Here Nor There</h2>
+<div class="content">
+<p>
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla imperdiet, leo eu feugiat tristique, ipsum augue luctus tortor, nec consequat dui arcu non leo. Curabitur ornare ultrices massa nec convallis. Etiam ac nunc pellentesque, imperdiet leo in, molestie erat. Sed elementum, dui sit amet elementum venenatis, neque ex hendrerit sapien, at porta ligula dolor eu sem. In tempor neque posuere, laoreet risus nec, tincidunt nibh. Nullam dapibus ullamcorper ante, vel cursus lacus sodales nec. Nullam tincidunt, justo ut pulvinar luctus, lacus urna sagittis tortor, ut aliquam velit est a nulla.
+</p><p>
+Phasellus ut efficitur neque. Duis id pharetra sem. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus est magna, elementum id convallis a, porta laoreet sem. Nulla eleifend quam nec consectetur egestas. Nam non sem sodales, sollicitudin ante vitae, pretium nulla. Donec quis dictum leo, vel ultrices nisl. Pellentesque in elit rutrum, eleifend dui sed, accumsan nulla.
+</p><p>
+Duis in metus dictum, consectetur risus non, volutpat quam. Sed eget dapibus urna. Duis porttitor magna ut magna varius euismod. Maecenas consectetur mauris vel massa mollis tristique. Nam at massa et nulla hendrerit dictum ut vitae urna. In congue nibh gravida, tincidunt metus non, condimentum mi. Ut scelerisque fringilla nisl, eu mollis diam congue et. Mauris mattis, lectus at ultricies finibus, enim nunc varius velit, vel aliquam velit mauris in felis.
+</p><p>
+Aliquam sit amet laoreet turpis. Nullam aliquam felis vel dui volutpat, vel volutpat felis euismod. Fusce cursus augue fringilla augue aliquet aliquet. Integer condimentum ex et lectus ullamcorper commodo. Mauris placerat lorem nec dolor rhoncus, ut molestie sapien facilisis. Sed vestibulum id lacus eu pretium. Proin eget tincidunt tortor. Etiam nunc eros, pellentesque eu massa eu, mattis fringilla enim. Integer id faucibus sem. Mauris feugiat ipsum lacinia neque interdum, et consequat dui imperdiet. Duis commodo porttitor libero. Maecenas luctus euismod risus.
+</p><p>
+Nullam ut ipsum ac eros porttitor molestie. Vestibulum elementum quam vel facilisis rutrum. Vestibulum nec elit quis eros eleifend dignissim. Nam ut volutpat diam. Aliquam ut tristique lectus. Donec id velit vitae augue sodales aliquet. Praesent ante nisi, aliquet quis arcu vitae, tristique tristique est. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut feugiat ipsum eget felis mattis finibus. Nam tristique laoreet lectus in egestas.
+</div>
+<!-- Begin MailChimp Signup Form -->
+<div id="mc_embed_signup">
+<form action="//herokuapp.us10.list-manage.com/subscribe/post-json?u=e2ba79016af1e2c302fa7ea31&amp;id=ca5bafbf1c&amp;c=?" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+    <div id="mc_embed_signup_scroll">
+
+  <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email address" required>
+    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+    <div style="position: absolute; left: -5000px;"><input type="text" name="b_e2ba79016af1e2c302fa7ea31_ca5bafbf1c" tabindex="-1" value=""></div>
+    <div class="clear"><input type="submit" value="Subscribe For Words Every Week" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
+    </div>
+</form>
+</div>
+<!--End mc_embed_signup-->
+</body>
